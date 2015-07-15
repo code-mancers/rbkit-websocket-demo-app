@@ -20,13 +20,20 @@ ws.onmessage = function(event){
   console.log(type == 0 ? 'REP socket:' : 'PUB socket:');
   var message = event.data.slice(1);
   var unescaped_message = unescape(message);
-  if(unescaped_message == "ok") {
-    console.log(unescaped_message);
-  } else {
-    console.log(msgpack.unpack(unescaped_message));
+  if(type == 0) {
+    if(unescaped_message == "ok") {
+      console.log(unescaped_message);
+      return;
+    }
+    if(unescaped_message.match(/client_count/)) {
+      console.warn("Losing connection to new client!");
+      console.log(unescaped_message);
+      return;
+    }
   }
+  console.log(msgpack.unpack(unescaped_message));
 }
-ws.onclose = function(event) { console.warn(event.reason); }
+ws.onclose = function(event) { console.warn("Disconnected from server." + event.reason); }
 
 var help = function() {
   console.log("Try the following commands with `ws.send('<command>')`");
