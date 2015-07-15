@@ -13,8 +13,8 @@
 //= require msgpack.base
 //= require_tree .
 
-
-var ws = new WebSocket("ws://" + location.host, ['rbkit']);
+var ws_protocol = location.hostname == 'localhost' ? 'ws://' : 'wss://';
+var ws = new WebSocket(ws_protocol + location.host, ['rbkit']);
 ws.onmessage = function(event){
   var type = event.data[0];
   console.log(type == 0 ? 'REP socket:' : 'PUB socket:');
