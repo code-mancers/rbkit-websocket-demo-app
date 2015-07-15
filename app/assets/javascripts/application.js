@@ -22,7 +22,12 @@ ws.onmessage = function(event){
   var type = event.data[0];
   console.log(type == 0 ? 'REP socket:' : 'PUB socket:');
   var message = event.data.slice(1);
-  console.log(msgpack.unpack(unescape(message)));
+  var unescaped_message = unescape(message);
+  if(unescaped_message == "ok") {
+    console.log(unescaped_message);
+  } else {
+    console.log(msgpack.unpack(unescaped_message));
+  }
 }
 ws.onclose = function(event) { console.warn(event.reason); }
 
