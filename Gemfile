@@ -14,8 +14,9 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'thin'
 end
 
 gem 'rbkit', github: 'code-mancers/rbkit', branch: 'io-callbacks'
 gem 'rbkit-websocket', github: 'code-mancers/rbkit-websocket'
-gem 'thin'
+gem 'puma'
