@@ -1,1 +1,44 @@
-<h1>See console logs</h1>
+<h1>See JS console logs</h1>
+
+<p>
+This is a Rails app on Heroku, with Rbkit server running.
+There is a Rack middleware in this app which hijacks websocket connections and uses it
+as the channel for Rbkit server IO.
+</p>
+
+<p>
+In the JS console, you have access to a variable "ws" which holds a websocket object
+which is connected to Rbkit server.
+</p>
+
+You can run the following from the JS console and talk to Rbkit server :
+
+<br/>
+<br/>
+
+<table style="width:100%" border='1'>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>ws.send('start_memory_profile')</td>
+    <td>Start object traces and GC stats</td>
+  </tr>
+  <tr>
+    <td>ws.send('stop_memory_profile')</td>
+    <td>Stop object traces and GC stats</td>
+  </tr>
+  <tr>
+    <td>ws.send('objectspace_snapshot')</td>
+    <td>Get an object space dump (Warning! This will take a while)</td>
+  </tr>
+  <tr>
+    <td>ws.send('trigger_gc')</td>
+    <td>Trigger a garbage collection</td>
+  </tr>
+  <tr>
+    <td>ws.send('handshake')</td>
+    <td>Get a handshake response with Rbkit status</td>
+  </tr>
+</table>
