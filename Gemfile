@@ -43,7 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'rbkit', path: '~/OpenSource/rbkit'
-gem 'rbkit-websocket', path: '~/Testing/rbkit-websocket'
+gem 'rbkit', github: 'code-mancers/rbkit', branch: 'io-callbacks'
+gem 'rbkit-websocket', github: 'code-mancers/rbkit-websocket'
 gem 'thin'
-gem 'pry'
