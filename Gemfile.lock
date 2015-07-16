@@ -1,13 +1,13 @@
 GIT
   remote: git://github.com/code-mancers/rbkit-websocket.git
-  revision: 9ffc17985ac3cd980bd1b0b2aab731edb81a1ffc
+  revision: 4bfa454480e9787a381ce463c057438ef58ae8c2
   specs:
     rbkit-websocket (0.1.0)
       faye-websocket (~> 0.10.0)
 
 GIT
   remote: git://github.com/code-mancers/rbkit.git
-  revision: 17894e699ef9e9889654b70f7c0b8ebbc9057a33
+  revision: f172a013070d58a575a2c08e2c375bf45dfbc1d7
   branch: io-callbacks
   specs:
     rbkit (0.1.10)
